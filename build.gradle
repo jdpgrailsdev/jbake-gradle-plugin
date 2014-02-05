@@ -1,7 +1,8 @@
 apply plugin: 'groovy'
 apply plugin: 'idea'
-apply plugin: 'maven-publish'
-apply from: 'gradle/artifactory.gradle'
+apply plugin: 'maven'
+//apply plugin: 'maven-publish'
+//apply from: 'gradle/artifactory.gradle'
 
 buildscript {
     repositories {
@@ -22,6 +23,7 @@ dependencies {
     compile 'org.jbake:jbake-core:2.3.0-SNAPSHOT'
 }
 
+project.group = 'me.champeau.gradle'
 project.version = '0.1-SNAPSHOT'
 
 task sourceJar(type: Jar) {
@@ -33,4 +35,3 @@ task groovydocJar(type: Jar, dependsOn: groovydoc) {
     classifier = 'groovydoc'
     from groovydoc.destinationDir
 }
-
